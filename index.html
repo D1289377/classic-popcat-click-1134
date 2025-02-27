@@ -62,6 +62,7 @@
             text-align: center;
             color: white;
             font-size: 80px;
+            font-weight: 900;
             -webkit-text-stroke: 3px black;
         }
 
@@ -92,5 +93,52 @@
     <div class="cat-img" id="p">0</div>
 </div>
 
+<script>
+    //1.計數器初始化
+    let count = 0;
+
+    // 用 id 抓取 文字的HTML元素
+    let p = document.getElementById('p');
+
+    // 顯示計數器的數字
+    p.innerText = count;
+
+
+    //2.寫一個function 計數器累加
+    function addCount() {
+        //計數器累加
+        count += 1;
+    }
+
+    // 註冊滑鼠按下的事件，呼叫計數器累加 function
+    // 註冊滑鼠按下的時候，更新計數器的顯示
+    // 當滑鼠按下，切換張嘴圖片
+    //當滑鼠按下，播放 pops/pop1.mp3
+    document.addEventListener('mousedown', function () {
+        addCount()
+        p.innerText = count;
+
+        //切換張嘴圖片
+        p.id = 'op';
+
+        //播放 pops/pop1.mp3
+        let audio = new Audio('pops/pop1.mp3');
+        audio.play();
+    });
+
+    //註冊滑鼠放開的事件，切換張嘴圖片
+    document.addEventListener('mouseup', function () {
+        p.id = 'p';
+    });
+
+
+
+
+
+
+
+</script>
+
 </body>
 </html>
+
